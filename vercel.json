@@ -1,51 +1,49 @@
 {
   "version": 2,
   "public": true,
+  "cleanUrls": true,
+  "trailingSlash": false,
   "build": {
     "env": {
       "NODE_ENV": "production"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/",
-      "dest": "/public/signin.html"
+      "source": "/",
+      "destination": "/public/signin.html"
     },
     {
-      "src": "/signin",
-      "dest": "/public/signin.html"
+      "source": "/signin",
+      "destination": "/public/signin.html"
     },
     {
-      "src": "/signup",
-      "dest": "/public/signup.html"
+      "source": "/signup",
+      "destination": "/public/signup.html"
     },
     {
-      "src": "/contact",
-      "dest": "/public/contact.html"
+      "source": "/contact",
+      "destination": "/public/contact.html"
     },
     {
-      "src": "/meditation",
-      "dest": "/public/meditation.html"
+      "source": "/meditation",
+      "destination": "/public/meditation.html"
     },
     {
-      "src": "/mood",
-      "dest": "/public/mood.html"
+      "source": "/mood",
+      "destination": "/public/mood.html"
     },
     {
-      "src": "/profile",
-      "dest": "/public/profile.html"
+      "source": "/profile",
+      "destination": "/public/profile.html"
     },
     {
-      "src": "/services",
-      "dest": "/public/services.html"
+      "source": "/services",
+      "destination": "/public/services.html"
     },
     {
-      "src": "/faq",
-      "dest": "/public/FAQ.html"
-    },
-    {
-      "src": "/(.+\\.(png|jpg|jpeg|gif|svg|ico|mp4|css|js))",
-      "dest": "/$1"
+      "source": "/faq",
+      "destination": "/public/FAQ.html"
     }
   ],
   "headers": [

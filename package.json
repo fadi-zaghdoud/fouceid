@@ -7,7 +7,7 @@
     "dev": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch",
     "build": "npx tailwindcss -i ./src/input.css -o ./public/style.css --minify",
     "start": "npx serve public",
-    "preview": "npx serve public"
+    "preview": "npx serve ."
   },
   "keywords": [
     "mental-health",
