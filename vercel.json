@@ -1,0 +1,70 @@
+{
+  "version": 2,
+  "public": true,
+  "build": {
+    "env": {
+      "NODE_ENV": "production"
+    }
+  },
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/public/signin.html"
+    },
+    {
+      "src": "/signin",
+      "dest": "/public/signin.html"
+    },
+    {
+      "src": "/signup",
+      "dest": "/public/signup.html"
+    },
+    {
+      "src": "/contact",
+      "dest": "/public/contact.html"
+    },
+    {
+      "src": "/meditation",
+      "dest": "/public/meditation.html"
+    },
+    {
+      "src": "/mood",
+      "dest": "/public/mood.html"
+    },
+    {
+      "src": "/profile",
+      "dest": "/public/profile.html"
+    },
+    {
+      "src": "/services",
+      "dest": "/public/services.html"
+    },
+    {
+      "src": "/faq",
+      "dest": "/public/FAQ.html"
+    },
+    {
+      "src": "/(.+\\.(png|jpg|jpeg|gif|svg|ico|mp4|css|js))",
+      "dest": "/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-XSS-Protection",
+          "value": "1; mode=block"
+        }
+      ]
+    }
+  ]
+}

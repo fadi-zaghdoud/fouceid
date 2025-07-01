@@ -1,0 +1,27 @@
+{
+  "name": "fouceid-template",
+  "version": "1.0.0",
+  "description": "FouceID - Mental Health and Wellness Platform",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx tailwindcss -i ./src/input.css -o ./public/style.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./public/style.css --minify",
+    "start": "npx serve public",
+    "preview": "npx serve public"
+  },
+  "keywords": [
+    "mental-health",
+    "wellness",
+    "meditation",
+    "mood-tracker"
+  ],
+  "author": "FouceID Team",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.3.0",
+    "serve": "^14.2.0"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
