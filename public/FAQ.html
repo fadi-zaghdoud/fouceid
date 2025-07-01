@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ | ADHD Care Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Inter:wght@400;600&family=Syne:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'lexend': ['Lexend', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'syne': ['Syne', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-item:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="m-0 p-0 bg-gray-100">
+    <!-- Navigation Container -->
+    <div class="w-full bg-gradient-to-r from-[#3C90D2] to-[#1B75BC] px-4 py-4 md:px-10 md:h-[107px]">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center justify-between">
+                <img src="../logo.png" alt="Logo" class="h-8 md:h-10 transition-transform duration-300 transform hover:scale-110">
+                <!-- Mobile menu button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Navbar Links and Right Section -->
+            <div id="navContent" class="hidden md:flex flex-col md:flex-row md:items-center mt-4 md:mt-0">
+                <nav class="flex flex-col md:flex-row md:justify-center space-y-2 md:space-y-0 md:space-x-5 text-white text-[16px] font-lexend mb-4 md:mb-0 w-full">
+                    <a href="home.html" class="hover:underline">Home</a>
+                    <a href="about-us.html" class="hover:underline">About Us</a>
+                    <a href="contact.html" class="hover:underline">Contact Us</a>
+                    <a href="tasks.html" class="hover:underline">Tasks</a>
+                    <a href="meditation.html" class="hover:underline">Meditation</a>
+                    <a href="services.html" class="hover:underline">Services</a>
+                    <a href="faq.html" class="hover:underline font-bold">FAQ</a>
+                    <a href="mood.html" class="hover:underline">Mood</a>
+                    <a href="profile.html" class="hover:underline">Profile</a>
+                </nav>
+            </div>
+
+            <!-- Right Section -->
+            <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+                <a href="signup.html" class="w-full md:w-auto border border-white text-white px-4 py-2 rounded-full font-inter text-[16px] hover:bg-white hover:text-black transition text-center">
+                    Signup
+                </a>
+                <a href="login.html" class="w-full md:w-auto bg-white text-black px-4 py-2 rounded-full font-inter text-[16px] hover:bg-gray-200 transition text-center">
+                    Login
+                </a>
+                <!-- Language Selector -->
+                <div id="languageSelector" class="relative w-10 h-10 rounded-full border border-white flex items-center justify-center bg-gray-200 cursor-pointer">
+                    <img id="selectedFlag" src="https://flagcdn.com/w40/gb.png" alt="Current language" class="w-7 h-5" onclick="toggleLanguageMenu(event)">
+                    
+                    <!-- Dropdown Menu -->
+                    <div id="languageMenu" class="absolute top-12 right-0 bg-white border border-gray-300 rounded shadow-md hidden z-50">
+                        <div onclick="changeLanguage('en', 'https://flagcdn.com/w40/gb.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                            <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-5 h-4 mr-2"> English
+                        </div>
+                        <div onclick="changeLanguage('fr', 'https://flagcdn.com/w40/fr.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                            <img src="https://flagcdn.com/w40/fr.png" alt="Français" class="w-5 h-4 mr-2"> Français
+                        </div>
+                        <div onclick="changeLanguage('es', 'https://flagcdn.com/w40/es.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                            <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-5 h-4 mr-2"> Español
+                        </div>
+                        <div onclick="changeLanguage('de', 'https://flagcdn.com/w40/de.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                            <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" class="w-5 h-4 mr-2"> Deutsch
+                        </div>
+                        <div onclick="changeLanguage('it', 'https://flagcdn.com/w40/it.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                            <img src="https://flagcdn.com/w40/it.png" alt="Italiano" class="w-5 h-4 mr-2"> Italiano
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- FAQ Title Section -->
+    <section class="bg-[#3C90D2] text-white py-12 px-4">
+        <div class="container mx-auto text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6 font-lexend">FAQ</h1>
+            <p class="max-w-2xl mx-auto text-blue-100 font-inter">
+                This FAQ section helps resolve the most common questions about meditation techniques and ADHD care services.
+            </p>
+        </div>
+    </section>
+
+    <!-- FAQ Content -->
+    <main class="bg-white py-8 px-4">
+        <div class="container mx-auto max-w-4xl">
+            <!-- Trending Weekly Questions -->
+            <div class="mb-12">
+                <h2 class="text-gray-400 text-sm mb-2 font-inter">FIRST QUESTION ANSWER</h2>
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800 font-lexend">Question answer<br>trending weekly</h3>
+                </div>
+                
+                <!-- FAQ Item 1 -->
+                <div class="border-t border-gray-200 py-4 faq-item">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-gray-800 font-medium font-lexend">How long should I meditate each day?</h4>
+                        <button class="text-gray-400 toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-600 font-inter content">
+                        For beginners, starting with just 5-10 minutes of meditation daily can be beneficial. As you become more comfortable with the practice, you can gradually increase to 15-20 minutes. Remember, consistency is more important than duration, especially when managing ADHD symptoms.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="border-t border-gray-200 py-4 faq-item">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-gray-800 font-medium font-lexend">How can meditation help with ADHD symptoms?</h4>
+                        <button class="text-gray-400 toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-600 font-inter content hidden">
+                        Regular meditation practice has been shown to improve focus, reduce impulsivity, and decrease hyperactivity. By training your mind to be present and mindful, you can develop better attention control and emotional regulation, which are often challenges for individuals with ADHD.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="border-t border-gray-200 py-4 faq-item">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-gray-800 font-medium font-lexend">What if I can't sit still to meditate?</h4>
+                        <button class="text-gray-400 toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-600 font-inter content hidden">
+                        Movement-based meditation practices like walking meditation, tai chi, or gentle yoga might be more suitable for those who struggle with sitting still. These practices offer the benefits of meditation while allowing for physical movement, making them excellent options for people with ADHD.
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Usually Asked Questions -->
+            <div>
+                <h2 class="text-gray-400 text-sm mb-2 font-inter">SECOND QUESTION ANSWER</h2>
+                <div class="flex justify-between items-start mb-4">
+                    <h3 class="text-2xl font-bold text-gray-800 font-lexend">Usually Asked<br>Question Client</h3>
+                </div>
+                
+                <!-- FAQ Item 1 -->
+                <div class="border-t border-gray-200 py-4 faq-item">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-gray-800 font-medium font-lexend">How do I access guided meditation sessions?</h4>
+                        <button class="text-gray-400 toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-600 font-inter content">
+                        Our guided meditation sessions are available in the "Meditation" section of our website. You can access various types of meditations specifically designed for ADHD management, including focus-enhancing, calming, and mindfulness exercises.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="border-t border-gray-200 py-4 faq-item">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-gray-800 font-medium font-lexend">Can meditation replace medication for ADHD?</h4>
+                        <button class="text-gray-400 toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-600 font-inter content hidden">
+                        Meditation is best viewed as a complementary practice to conventional ADHD treatments, not a replacement. While meditation can significantly improve symptoms and quality of life, decisions about medication should always be made in consultation with healthcare professionals who specialize in ADHD management.
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="border-t border-gray-200 py-4 faq-item">
+                    <div class="flex justify-between items-center">
+                        <h4 class="text-gray-800 font-medium font-lexend">Are your services suitable for children with ADHD?</h4>
+                        <button class="text-gray-400 toggle-btn">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="mt-2 text-sm text-gray-600 font-inter content hidden">
+                        Yes, we offer meditation and mindfulness programs specially designed for children with ADHD. These age-appropriate exercises use engaging imagery, shorter durations, and interactive elements to help children develop focus and self-regulation skills in a way that's accessible and enjoyable for them.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-[#1B75BC] w-full py-8 md:py-16">
+        <div class="container mx-auto px-4 md:px-10">
+            <!-- Header Section -->
+            <div class="text-center mb-8 md:mb-16">
+                <h2 class="text-white text-[32px] md:text-[54px] font-lexend font-normal leading-[40px] md:leading-[60px] max-w-3xl mx-auto mb-6 md:mb-10">
+                    Let's relax and follow our hearts!
+                </h2>
+                <div class="inline-block bg-[#DBE9F4] shadow-lg rounded-[30px] hover:shadow-xl transition-shadow">
+                    <a href="contact.html" class="flex items-center gap-4 px-6 md:px-8 py-3 md:py-4">
+                        <span class="text-[#1B75BC] text-[12px] md:text-[14px] font-lexend font-bold uppercase tracking-[1px]">
+                            Contact Us
+                        </span>
+                        <svg width="24" height="16" fill="#1B75BC" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M23.94 8 16.48 0h-2.52L20.46 7H0v2h20.46l-6.5 7h2.52l7.46-8z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="border-t border-white opacity-15 mb-6 md:mb-10">
+
+            <!-- Main Footer Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-8 md:mb-10">
+                <!-- Social Media Icons Section -->
+                <div class="flex gap-5 items-center justify-center md:justify-start">
+                    <a href="https://www.facebook.com" target="_blank" class="w-[50px] h-[50px] bg-[#1877F2] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-6 h-6"/>
+                    </a>
+                    <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="w-[50px] h-[50px] bg-[#1DA1F2] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                        <svg width="24" height="24" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M32 6.076a13.14 13.14 0 0 1-3.769 1.031A6.584 6.584 0 0 0 31.115 4.1a13.184 13.184 0 0 1-4.172 1.594A6.563 6.563 0 0 0 22.155 4a6.573 6.573 0 0 0-6.563 6.563c0 .514.058 1.015.169 1.496C10.248 11.852 5.438 9.154 2.228 5.196a6.574 6.574 0 0 0-.89 3.299c0 2.278 1.16 4.286 2.925 5.463A6.526 6.526 0 0 1 1.28 13v.082a6.576 6.576 0 0 0 5.267 6.437 6.582 6.582 0 0 1-2.892.11 6.577 6.577 0 0 0 6.132 4.563A13.174 13.174 0 0 1 0 27.544a18.574 18.574 0 0 0 10.063 2.949c12.075 0 18.675-10.003 18.675-18.675 0-.285-.006-.568-.019-.85A13.305 13.305 0 0 0 32 6.076z" />
+                        </svg>
+                    </a>
+                    <a href="https://www.linkedin.com" target="_blank" class="w-[50px] h-[50px] bg-[#0077B5] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" class="w-6 h-6"/>
+                    </a>
+                    <a href="https://www.instagram.com" target="_blank" class="w-[50px] h-[50px] bg-[#E1306C] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-6 h-6"/>
+                    </a>
+                    <a href="https://www.youtube.com" target="_blank" class="w-[50px] h-[50px] bg-[#FF0000] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" class="w-6 h-6"/>
+                    </a>
+                </div>
+
+                <!-- Pages Links Section -->
+                <div class="flex flex-col gap-3 md:gap-5">
+                    <h3 class="text-white text-[20px] md:text-[24px] font-lexend font-normal text-center md:text-left">Pages</h3>
+                    <nav class="flex flex-col gap-2 md:gap-3">
+                        <a href="home.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Home</a>
+                        <a href="about-us.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">About us</a>
+                        <a href="tasks.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Tasks</a>
+                        <a href="meditation.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Meditation</a>
+                        <a href="services.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Services</a>
+                        <a href="faq.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left font-bold">FAQ</a>
+                    </nav>
+                </div>
+
+                <!-- Contact Info Section -->
+                <div class="flex flex-col items-center md:items-end gap-3 md:gap-5 text-center md:text-right">
+                    <div class="text-white text-[16px] md:text-[18px] font-syne">25 Rue Habib Bourguiba - Ghazela Ariana TUNIS</div>
+                    <div class="text-white text-[24px] md:text-[30px] font-syne">55 001 001</div>
+                    <div class="text-white text-[16px] md:text-[18px] font-syne">Focusaid@esprit.tn</div>
+                </div>
+            </div>
+
+            <!-- Divider -->
+            <hr class="border-t border-white opacity-15 mb-4 md:mb-5">
+
+            <!-- Footer Bottom Text -->
+            <div class="text-center text-white text-[14px] md:text-[16px] font-syne">
+                Privacy Policy - Esprit © 2025 - All Rights Reserved
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navContent = document.getElementById('navContent');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navContent.classList.toggle('hidden');
+        });
+
+        // Language selector functionality
+        function toggleLanguageMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById("languageMenu");
+            menu.classList.toggle("hidden");
+        }
+
+        function changeLanguage(lang, flagUrl) {
+            document.getElementById("selectedFlag").src = flagUrl;
+            document.getElementById("languageMenu").classList.add("hidden");
+        }
+
+        document.addEventListener("click", function(event) {
+            const menu = document.getElementById("languageMenu");
+            const selector = document.getElementById("languageSelector");
+            if (!selector.contains(event.target)) {
+                menu.classList.add("hidden");
+            }
+        });
+
+        // Ensure nav menu is visible on larger screens
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                navContent.classList.remove('hidden');
+            } else {
+                navContent.classList.add('hidden');
+            }
+        });
+
+        // FAQ toggle functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const toggleButtons = document.querySelectorAll('.toggle-btn');
+            
+            toggleButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const content = button.closest('.faq-item').querySelector('.content');
+                    
+                    if (content.classList.contains('hidden')) {
+                        content.classList.remove('hidden');
+                        button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z" clip-rule="evenodd" />
+                        </svg>`;
+                    } else {
+                        content.classList.add('hidden');
+                        button.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                        </svg>`;
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

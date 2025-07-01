@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>login</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;600&family=Inter:wght@400;600&family=Syne:wght@400;500&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'lexend': ['Lexend', 'sans-serif'],
+                        'inter': ['Inter', 'sans-serif'],
+                        'syne': ['Syne', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="m-0 p-0 bg-gray-100">
+    <!-- Navigation Container -->
+    <div class="w-full bg-gradient-to-r from-[#3C90D2] to-[#1B75BC] px-4 py-4 md:px-10 md:h-[107px]">
+        <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+            <!-- Logo Section -->
+            <div class="flex items-center justify-between">
+                <img src="..\logo.png" alt="Logo" class="h-8 md:h-10 transition-transform duration-300 transform hover:scale-110">
+                <!-- Mobile menu button -->
+                <button id="mobileMenuBtn" class="md:hidden text-white">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                    </svg>
+                </button>
+            </div>
+            
+          <!-- Navbar Links and Right Section -->
+<div id="navContent" class="hidden md:flex flex-col md:flex-row md:items-center mt-4 md:mt-0">
+    <nav class="flex flex-col md:flex-row md:justify-center space-y-2 md:space-y-0 md:space-x-5 text-white text-[16px] font-lexend mb-4 md:mb-0 w-full">
+        <a href="home.html" class="hover:underline">Home</a>
+      <a href="about-us.html" class="hover:underline">About Us</a>
+      <a href="contact.html" class="hover:underline">Contact Us</a>
+      <a href="tasks.html" class="hover:underline">Tasks</a>
+      <a href="meditation.html" class="hover:underline">Meditation</a>
+      <a href="services.html" class="hover:underline">Services</a>
+      <a href="faq.html" class="hover:underline">FAQ</a>
+      <a href="mood.html" class="hover:underline">Mood</a>
+      <a href="profile.html" class="hover:underline">Profile</a>
+    </nav>
+</div>
+
+                <!-- Right Section -->
+                <div class="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4">
+                    <a href="signup.html" class="w-full md:w-auto border border-white text-white px-4 py-2 rounded-full font-inter text-[16px] hover:bg-white hover:text-black transition text-center">
+                        Signup
+                    </a>
+                    <a href="#" class="w-full md:w-auto bg-white text-black px-4 py-2 rounded-full font-inter text-[16px] hover:bg-gray-200 transition text-center">
+                        Login
+                    </a>
+                    <!-- Language Selector -->
+                    <div id="languageSelector" class="relative w-10 h-10 rounded-full border border-white flex items-center justify-center bg-gray-200 cursor-pointer">
+                        <img id="selectedFlag" src="https://flagcdn.com/w40/gb.png" alt="Current language" class="w-7 h-5" onclick="toggleLanguageMenu(event)">
+                        
+                        <!-- Dropdown Menu -->
+                        <div id="languageMenu" class="absolute top-12 right-0 bg-white border border-gray-300 rounded shadow-md hidden z-50">
+                            <div onclick="changeLanguage('en', 'https://flagcdn.com/w40/gb.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                                <img src="https://flagcdn.com/w40/gb.png" alt="English" class="w-5 h-4 mr-2"> English
+                            </div>
+                            <div onclick="changeLanguage('fr', 'https://flagcdn.com/w40/fr.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                                <img src="https://flagcdn.com/w40/fr.png" alt="Français" class="w-5 h-4 mr-2"> Français
+                            </div>
+                            <div onclick="changeLanguage('es', 'https://flagcdn.com/w40/es.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                                <img src="https://flagcdn.com/w40/es.png" alt="Español" class="w-5 h-4 mr-2"> Español
+                            </div>
+                            <div onclick="changeLanguage('de', 'https://flagcdn.com/w40/de.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                                <img src="https://flagcdn.com/w40/de.png" alt="Deutsch" class="w-5 h-4 mr-2"> Deutsch
+                            </div>
+                            <div onclick="changeLanguage('it', 'https://flagcdn.com/w40/it.png')" class="flex items-center px-3 py-2 cursor-pointer hover:bg-gray-100">
+                                <img src="https://flagcdn.com/w40/it.png" alt="Italiano" class="w-5 h-4 mr-2"> Italiano
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Login Section -->
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Left side - Login Form -->
+        <div class="w-full md:w-1/2 p-6 md:p-10 flex flex-col justify-center">
+            <div class="max-w-md mx-auto">
+                <h1 class="text-black text-[28px] md:text-[32px] font-lexend font-medium mb-6 md:mb-10">Welcome Back</h1>
+                
+                <div class="mb-6">
+                    <label for="email" class="block text-black text-[16px] md:text-[18px] font-lexend font-normal mb-2">Email</label>
+                    <div class="w-full px-[15px] md:px-[25px] py-[12px] md:py-[16px] rounded-[10px] border border-[#E0E0E0] flex items-center gap-[10px]">
+                        <input id="email" type="email" placeholder="Your Email" class="flex-1 h-[30px] border-none outline-none text-[16px] text-[#787878] font-lexend font-light">
+                    </div>
+                </div>
+                
+                <div class="mb-6">
+                    <label for="password" class="block text-black text-[16px] md:text-[18px] font-lexend font-normal mb-2">Password</label>
+                    <div class="w-full px-[15px] md:px-[25px] py-[12px] md:py-[16px] rounded-[10px] border border-[#E0E0E0] flex items-center gap-[10px]">
+                        <input id="password" type="password" placeholder="Your Password" class="flex-1 h-[30px] border-none outline-none text-[16px] text-[#787878] font-lexend font-light">
+                    </div>
+                </div>
+                
+                <!-- Remember & Forgot Password -->
+                <div class="flex justify-between items-center mb-6">
+                    <div class="flex items-center gap-[5px]">
+                        <input type="checkbox" id="remember" class="w-[12px] h-[12px]">
+                        <label for="remember" class="text-black text-[10px] font-lexend font-medium">Remember for 30 days</label>
+                    </div>
+                    <a href="#" class="text-black text-[10px] font-lexend font-medium underline">
+                        Forgot Password
+                    </a>
+                </div>
+                
+                <!-- Login Button -->
+                <button class="w-full px-[40px] py-[16px] bg-[#0671E0] rounded-[10px] text-white text-[16px] font-lexend font-semibold capitalize leading-[20px] cursor-pointer mb-8">
+                    Login
+                </button>
+                
+                 <!-- Social Login -->
+        <div class="mt-8">
+          <!-- Google Sign-In Button -->
+          <a href="https://accounts.google.com/signin" target="_blank" class="block w-full mb-4">
+            <div class="h-[52px] border border-[#D9D9D9] rounded-[10px] flex items-center justify-center gap-[10px] cursor-pointer">
+              <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22.3055 10.0415H21.5V10H12.5V14H18.1515C17.327 16.3285 15.1115 18 12.5 18C9.1865 18 6.5 15.3135 6.5 12C6.5 8.6865 9.1865 6 12.5 6C14.0295 6 15.421 6.577 16.4805 7.5195L19.309 4.691C17.523 3.0265 15.134 2 12.5 2C6.9775 2 2.5 6.4775 2.5 12C2.5 17.5225 6.9775 22 12.5 22C18.0225 22 22.5 17.5225 22.5 12C22.5 11.3295 22.431 10.675 22.3055 10.0415Z" fill="#FFC107"/>
+                <path d="M3.65332 7.3455L6.93882 9.755C7.82782 7.554 9.98082 6 12.5003 6C14.0298 6 15.4213 6.577 16.4808 7.5195L19.3093 4.691C17.5233 3.0265 15.1343 2 12.5003 2C8.65932 2 5.32832 4.1685 3.65332 7.3455Z" fill="#FF3D00"/>
+                <path d="M12.5002 21.9999C15.0832 21.9999 17.4302 21.0114 19.2047 19.4039L16.1097 16.7849C15.1057 17.5454 13.8577 17.9999 12.5002 17.9999C9.89916 17.9999 7.69066 16.3414 6.85866 14.0269L3.59766 16.5394C5.25266 19.7779 8.61366 21.9999 12.5002 21.9999Z" fill="#4CAF50"/>
+                <path d="M22.3055 10.0415H21.5V10H12.5V14H18.1515C17.7555 15.1185 17.036 16.083 16.108 16.7855L16.1095 16.7845L19.2045 19.4035C18.9855 19.6025 22.5 17 22.5 12C22.5 11.3295 22.431 10.675 22.3055 10.0415Z" fill="#1976D2"/>
+              </svg>
+              <span class="font-[Poppins] text-[12px] font-medium text-black">Sign in with Google</span>
+            </div>
+          </a>
+          
+          <!-- Social Media Sign-In Buttons -->
+          <div class="flex justify-between w-full gap-[10px]">
+            <a href="https://www.facebook.com" target="_blank" class="flex-1 h-[44px] bg-[#1877F2] rounded-[10px] flex justify-center items-center">
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 11h3V7h-3c-2.76 0-5 2.24-5 5v3H10v4h4v9h4v-9h3l1-4h-4v-3c0-.55.45-1 1-1z" />
+              </svg>
+            </a>
+            
+            <a href="https://www.twitter.com" target="_blank" class="flex-1 h-[44px] bg-[#1DA1F2] rounded-[10px] flex justify-center items-center">
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M32 6.076a13.14 13.14 0 0 1-3.769 1.031A6.584 6.584 0 0 0 31.115 4.1a13.184 13.184 0 0 1-4.172 1.594A6.563 6.563 0 0 0 22.155 4a6.573 6.573 0 0 0-6.563 6.563c0 .514.058 1.015.169 1.496C10.248 11.852 5.438 9.154 2.228 5.196a6.574 6.574 0 0 0-.89 3.299c0 2.278 1.16 4.286 2.925 5.463A6.526 6.526 0 0 1 1.28 13v.082a6.576 6.576 0 0 0 5.267 6.437 6.582 6.582 0 0 1-2.892.11 6.577 6.577 0 0 0 6.132 4.563A13.174 13.174 0 0 1 0 27.544a18.574 18.574 0 0 0 10.063 2.949c12.075 0 18.675-10.003 18.675-18.675 0-.285-.006-.568-.019-.85A13.305 13.305 0 0 0 32 6.076z" />
+              </svg>
+            </a>
+            
+            <a href="https://www.linkedin.com" target="_blank" class="flex-1 h-[44px] bg-[#0077B5] rounded-[10px] flex justify-center items-center">
+              <svg width="24" height="24" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 12h5.2v2.53h.07c.73-1.38 2.52-2.83 5.2-2.83 5.56 0 6.58 3.66 6.58 8.42V28h-5.6v-7.4c0-1.76-.03-4.03-2.46-4.03-2.47 0-2.85 1.93-2.85 3.92V28H12V12zM4 12h5.6v16H4V12zm2.8-8C5.12 4 4 5.12 4 6.8S5.12 9.6 6.8 9.6 9.6 8.48 9.6 6.8 8.48 4 6.8 4z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+        <!-- Right side - Image -->
+        <div class="hidden md:block md:w-1/2 relative">
+            <img src="..\image.png" alt="Login background" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-[#1B75BC] to-transparent opacity-30"></div>
+        </div>
+    </div>
+
+  <!-- Footer -->
+<footer class="bg-[#1B75BC] w-full py-8 md:py-16">
+  <div class="container mx-auto px-4 md:px-10">
+      <!-- Header Section -->
+      <div class="text-center mb-8 md:mb-16">
+          <h2 class="text-white text-[32px] md:text-[54px] font-lexend font-normal leading-[40px] md:leading-[60px] max-w-3xl mx-auto mb-6 md:mb-10">
+              Let's relax and follow our hearts!
+          </h2>
+          <div class="inline-block bg-[#DBE9F4] shadow-lg rounded-[30px] hover:shadow-xl transition-shadow">
+              <a href="contact.html" class="flex items-center gap-4 px-6 md:px-8 py-3 md:py-4">
+                  <span class="text-[#1B75BC] text-[12px] md:text-[14px] font-lexend font-bold uppercase tracking-[1px]">
+                      Contact Us
+                  </span>
+                  <svg width="24" height="16" fill="#1B75BC" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M23.94 8 16.48 0h-2.52L20.46 7H0v2h20.46l-6.5 7h2.52l7.46-8z"/>
+                  </svg>
+              </a>
+          </div>
+      </div>
+
+      <!-- Divider -->
+      <hr class="border-t border-white opacity-15 mb-6 md:mb-10">
+
+      <!-- Main Footer Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10 mb-8 md:mb-10">
+          <!-- Social Media Icons Section -->
+          <div class="flex gap-5 items-center justify-center md:justify-start">
+              <a href="https://www.facebook.com" target="_blank" class="w-[50px] h-[50px] bg-[#1877F2] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" class="w-6 h-6"/>
+              </a>
+              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer" class="w-[50px] h-[50px] bg-[#1DA1F2] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                <svg width="24" height="24" viewBox="0 0 32 32" fill="white" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M32 6.076a13.14 13.14 0 0 1-3.769 1.031A6.584 6.584 0 0 0 31.115 4.1a13.184 13.184 0 0 1-4.172 1.594A6.563 6.563 0 0 0 22.155 4a6.573 6.573 0 0 0-6.563 6.563c0 .514.058 1.015.169 1.496C10.248 11.852 5.438 9.154 2.228 5.196a6.574 6.574 0 0 0-.89 3.299c0 2.278 1.16 4.286 2.925 5.463A6.526 6.526 0 0 1 1.28 13v.082a6.576 6.576 0 0 0 5.267 6.437 6.582 6.582 0 0 1-2.892.11 6.577 6.577 0 0 0 6.132 4.563A13.174 13.174 0 0 1 0 27.544a18.574 18.574 0 0 0 10.063 2.949c12.075 0 18.675-10.003 18.675-18.675 0-.285-.006-.568-.019-.85A13.305 13.305 0 0 0 32 6.076z" />
+                </svg>
+              </a>
+              <a href="https://www.linkedin.com" target="_blank" class="w-[50px] h-[50px] bg-[#0077B5] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png" alt="LinkedIn" class="w-6 h-6"/>
+              </a>
+              <a href="https://www.instagram.com" target="_blank" class="w-[50px] h-[50px] bg-[#E1306C] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" class="w-6 h-6"/>
+              </a>
+              <a href="https://www.youtube.com" target="_blank" class="w-[50px] h-[50px] bg-[#FF0000] rounded-full flex justify-center items-center hover:opacity-90 transition">
+                  <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" alt="YouTube" class="w-6 h-6"/>
+              </a>
+          </div>
+
+          <!-- Pages Links Section -->
+          <div class="flex flex-col gap-3 md:gap-5">
+              <h3 class="text-white text-[20px] md:text-[24px] font-lexend font-normal text-center md:text-left">Pages</h3>
+              <nav class="flex flex-col gap-2 md:gap-3">
+                  <a href="index.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Home</a>
+                  <a href="about.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">About us</a>
+                  <a href="tasks.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Tasks</a>
+                  <a href="meditation.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Meditation</a>
+                  <a href="services.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">Services</a>
+                  <a href="faq.html" class="text-white text-[18px] font-lexend no-underline hover:underline text-center md:text-left">FAQ</a>
+              </nav>
+          </div>
+
+          <!-- Contact Info Section -->
+          <div class="flex flex-col items-center md:items-end gap-3 md:gap-5 text-center md:text-right">
+              <div class="text-white text-[16px] md:text-[18px] font-syne">25 Rue Habib Bourguiba - Ghazela Ariana TUNIS</div>
+              <div class="text-white text-[24px] md:text-[30px] font-syne">55 001 001</div>
+              <div class="text-white text-[16px] md:text-[18px] font-syne">Focusaid@esprit.tn</div>
+          </div>
+      </div>
+
+      <!-- Divider -->
+      <hr class="border-t border-white opacity-15 mb-4 md:mb-5">
+
+      <!-- Footer Bottom Text -->
+      <div class="text-center text-white text-[14px] md:text-[16px] font-syne">
+          Privacy Policy - Esprit © 2025 - All Rights Reserved
+      </div>
+  </div>
+</footer>
+
+
+    <!-- JavaScript -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navContent = document.getElementById('navContent');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navContent.classList.toggle('hidden');
+        });
+
+        function toggleLanguageMenu(event) {
+            event.stopPropagation();
+            const menu = document.getElementById("languageMenu");
+            menu.classList.toggle("hidden");
+        }
+
+        function changeLanguage(lang, flagUrl) {
+            document.getElementById("selectedFlag").src = flagUrl;
+            document.getElementById("languageMenu").classList.add("hidden");
+        }
+
+        document.addEventListener("click", function(event) {
+            const menu = document.getElementById("languageMenu");
+            
+            const selector = document.getElementById("languageSelector");
+            if (!selector.contains(event.target)) {
+                menu.classList.add("hidden");
+            }
+        });
+
+        // Ensure nav menu is visible on larger screens
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 768) {
+                navContent.classList.remove('hidden');
+            } else {
+                navContent.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
